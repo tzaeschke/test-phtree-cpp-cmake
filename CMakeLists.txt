@@ -20,14 +20,14 @@ endif ()
 # Build options
 # ---------------------------------------------------------------------------------------
 # example options
-option(PHTREE_BUILD_ALL "Build examples and tests" OFF)
+option(PHT_CMAKE_ALL "Build examples and tests" OFF)
 
 # example options
-option(PHTREE_BUILD_EXAMPLES "Build examples" OFF)
-#option(PHTREE_BUILD_EXAMPLE_HO "Build header only example" OFF)
+option(PHT_CMAKE_EXAMPLES "Build examples" ON)
+#option(PHT_CMAKE_EXAMPLE_HO "Build header only example" OFF)
 
 # testing options
-option(PHTREE_BUILD_TESTS "Build tests" OFF)
+option(PHT_CMAKE_TESTS "Build tests" OFF)
 
 
 # ---------------------------------------------------------------------------------------
@@ -53,7 +53,7 @@ if (MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++17")
     set(CMAKE_CXX_FLAGS_RELEASE "/O2")
 
-    if (PHTREE_BUILD_TESTS OR PHTREE_BUILD_ALL)
+    if (PHT_CMAKE_TESTS OR PHT_CMAKE_ALL)
         add_compile_options(/bigobj)
     endif ()
 else ()
@@ -64,36 +64,15 @@ endif ()
 # ---------------------------------------------------------------------------------------
 # Build binaries
 # ---------------------------------------------------------------------------------------
-add_subdirectory(include/phtree)
-
-if (PHTREE_BUILD_EXAMPLES OR PHTREE_BUILD_ALL)
+if (PHT_CMAKE_EXAMPLES OR PHT_CMAKE_ALL)
     message(STATUS "Generating examples")
-    add_subdirectory(examples)
-    message(STATUS "Generating examples header only")
-    add_subdirectory(examples-header-only)
+    add_subdirectory(example-fetch)
+    #message(STATUS "Generating examples header only")
+    #add_subdirectory(example-header-only)
 endif ()
 
-if (PHTREE_BUILD_TESTS OR PHTREE_BUILD_ALL)
+if (PHT_CMAKE_TESTS OR PHT_CMAKE_ALL)
     message(STATUS "Generating tests")
-    if (FALSE)
-        add_compile_definitions(GTEST_HAS_ABSL=0)
-        add_compile_definitions(GTEST_OS_WINDOWS_MOBILE=0)
-        if (MSVC)
-            add_compile_definitions(GTEST_OS_WINDOWS_MINGW=0)
-        endif ()
-        add_compile_definitions(GTEST_OS_LINUX_ANDROID=0)
-        if (LINUX)
-            add_compile_definitions(GTEST_OS_LINUX=1)
-        else ()
-            add_compile_definitions(GTEST_OS_LINUX=0)
-        endif ()
-        add_compile_definitions(
-                GTEST_OS_WINDOWS_MOBILE=0
-                GTEST_OS_WINDOWS_PHONE=0
-                GTEST_OS_WINDOWS_RT=0
-                GTEST_OS_ESP8266=0
-                GTEST_OS_XTENSA=0)
-    endif ()
 
     enable_testing()
     include(GoogleTest)

@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14)
 project(phtree-tests LANGUAGES CXX)
 
 include(FetchContent)
-include(common/scripts.cmake)
+include(scripts.cmake)
 
 FetchContent_Declare(
         googletest
@@ -26,14 +26,4 @@ mark_as_advanced(
 set_target_properties(gtest PROPERTIES FOLDER extern)
 set_target_properties(gtest_main PROPERTIES FOLDER extern)
 
-#include(GoogleTest)
-#gtest_discover_tests(all_tests_driver)
-
-if (PHTREE_CODE_COVERAGE)
-    package_add_test_main(all_tests
-            all_tests.cc
-            phtree_test.cc)
-    target_compile_definitions(all_tests PUBLIC SKIP_TEST_MEMORY_LEAKS=ON)
-else ()
-    package_add_test(phtree_test phtree_test.cc)
-endif ()
+package_add_test(phtree_test phtree_test.cc)

@@ -23,4 +23,6 @@ out
 cygwin
 CMakeSettings.json
 
+build.*
+
 /cmake-build-debug/
