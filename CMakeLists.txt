@@ -20,11 +20,9 @@ endif ()
 # Build options
 # ---------------------------------------------------------------------------------------
 # example options
-option(PHT_CMAKE_ALL "Build examples and tests" OFF)
-
-# example options
-option(PHT_CMAKE_EXAMPLES "Build examples" ON)
-#option(PHT_CMAKE_EXAMPLE_HO "Build header only example" OFF)
+option(PHT_CMAKE_FETCH_CONTENT "Build FetchContent_...() example" OFF)
+option(PHT_CMAKE_FIND_PACKAGE "Build find_package() example" OFF)
+option(PHT_CMAKE_ADD_SUBDIRECTORY "Build add_subdirectory() example" OFF)
 
 # testing options
 option(PHT_CMAKE_TESTS "Build tests" OFF)
@@ -64,14 +62,22 @@ endif ()
 # ---------------------------------------------------------------------------------------
 # Build binaries
 # ---------------------------------------------------------------------------------------
-if (PHT_CMAKE_EXAMPLES OR PHT_CMAKE_ALL)
-    message(STATUS "Generating examples")
+if (PHT_CMAKE_FETCH_CONTENT)
+    message(STATUS "Generating examples for FetchContent_...()")
     add_subdirectory(example-fetch)
-    #message(STATUS "Generating examples header only")
-    #add_subdirectory(example-header-only)
 endif ()
 
-if (PHT_CMAKE_TESTS OR PHT_CMAKE_ALL)
+if (PHT_CMAKE_FIND_PACKAGE)
+    message(STATUS "Generating examples for find_package()")
+    add_subdirectory(example-find-package)
+endif ()
+
+if (PHT_CMAKE_ADD_SUBDIRECTORY)
+    message(STATUS "Generating examples for subdirectory()")
+    add_subdirectory(example-add-subdirectory)
+endif ()
+
+if (PHT_CMAKE_TESTS)
     message(STATUS "Generating tests")
 
     enable_testing()
