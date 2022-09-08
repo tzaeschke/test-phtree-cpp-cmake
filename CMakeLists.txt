@@ -64,7 +64,7 @@ endif ()
 # ---------------------------------------------------------------------------------------
 if (PHT_CMAKE_FETCH_CONTENT)
     message(STATUS "Generating examples for FetchContent_...()")
-    add_subdirectory(example-fetch)
+    add_subdirectory(example-fetch-content)
 endif ()
 
 if (PHT_CMAKE_FIND_PACKAGE)
