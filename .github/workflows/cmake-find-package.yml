@@ -35,9 +35,9 @@ jobs:
           #echo "${args[@]}"
           #cmake "${args[@]}"
           #cmake $GITHUB_WORKSPACE/pck/phtree-cpp -DPHTREE_INSTALL=on -DCMAKE_INSTALL_PREFIX:PATH="../../../my_packages"
-          sudo cmake $GITHUB_WORKSPACE/pck/phtree-cpp -DPHTREE_INSTALL=on
+          cmake $GITHUB_WORKSPACE/pck/phtree-cpp -DPHTREE_INSTALL=on
           echo "hello2"
-          cmake --build . --config Release --target install -- -j2
+          sudo cmake --build . --config Release --target install -- -j2
           ls -la
           ls -la ../../..
           ls -la ../../../my_packages
