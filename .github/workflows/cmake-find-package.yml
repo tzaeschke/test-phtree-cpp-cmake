@@ -30,11 +30,19 @@ jobs:
           mkdir build && cd build
           ls -la
           echo "hello1"
-          cmake .. -DPHTREE_INSTALL=on -DCMAKE_INSTALL_PREFIX:PATH="../../my_packages"
+          cmake $GITHUB_WORKSPACE/pck -DPHTREE_INSTALL=on -DCMAKE_INSTALL_PREFIX:PATH="../../my_packages"
           ls -la
           echo "hello2"
           cmake --build . --config Release --target install -- -j2
           ls -la
+
+#      - name: Prepare package 2
+#        working-directory: ${{github.workspace}}/pck/build
+#        run: cmake $GITHUB_WORKSPACE/pck -DPHTREE_INSTALL=on -DCMAKE_INSTALL_PREFIX:PATH="../../my_packages"
+#
+#      - name: Prepare package 3
+#        working-directory: ${{github.workspace}}/pck/build
+#        run: cmake --build . --config Release --target install -- -j2
 
       - name: Create Build Environment
         run: cmake -E make_directory ${{github.workspace}}/build
