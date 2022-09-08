@@ -38,4 +38,4 @@ jobs:
 
       - name: Example
         working-directory: ${{github.workspace}}/build
-        run: example-lib/Example
+        run: example-find-package/Example
