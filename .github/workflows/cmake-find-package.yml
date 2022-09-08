@@ -18,6 +18,16 @@ jobs:
 
       - uses: hendrikmuhs/ccache-action@v1.2
 
+      - name: Prepare package
+        run: |
+          mkdir my_packages
+          mkdir pck && cd pck
+          git clone https://github.com/tzaeschke/phtree-cpp.git
+          git branch fix/83-cmake-find-package
+          mkdir build && cd build
+          cmake .. -DPHTREE_INSTALL=on -DCMAKE_INSTALL_PREFIX:PATH=../../my_packages
+          cmake --build . --config Release --target install -- -j2
+
       - name: Create Build Environment
         run: cmake -E make_directory ${{github.workspace}}/build
 
