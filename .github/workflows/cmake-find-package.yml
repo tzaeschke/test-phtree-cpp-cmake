@@ -24,7 +24,6 @@ jobs:
           mkdir pck && cd pck
           git clone https://github.com/tzaeschke/phtree-cpp.git
           cd phtree-cpp
-          git checkout fix/83-cmake-find-package
           mkdir build && cd build
           cmake $GITHUB_WORKSPACE/pck/phtree-cpp -DPHTREE_INSTALL=on
           sudo cmake --build . --config Release --target install -- -j2
