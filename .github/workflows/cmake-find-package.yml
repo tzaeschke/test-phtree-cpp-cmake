@@ -31,7 +31,7 @@ jobs:
           mkdir build && cd build
           ls -la
           echo "hello1"
-          args=("$GITHUB_WORKSPACE/pck" "-DPHTREE_INSTALL=on" "-DCMAKE_INSTALL_PREFIX:PATH='../../my_packages'")
+          args=("$GITHUB_WORKSPACE/pck/phtree-cpp" "-DPHTREE_INSTALL=on" "-DCMAKE_INSTALL_PREFIX:PATH='../../my_packages'")
           #echo "${args[@]}"
           cmake "${args[@]}"
           #cmake $GITHUB_WORKSPACE/pck -DPHTREE_INSTALL=on -DCMAKE_INSTALL_PREFIX:PATH="../../../my_packages"
