@@ -41,6 +41,7 @@ jobs:
           ls -la ../../..
           ls -la ../../../my_packages
           ls -la ../../../my_packages/share/phtree/cmake
+          ls -la ../../../my_packages/include/phtree/
 
 #      - name: Prepare package 2
 #        working-directory: ${{github.workspace}}/pck/phtree-cpp/build
