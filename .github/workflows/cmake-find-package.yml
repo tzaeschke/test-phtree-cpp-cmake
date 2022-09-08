@@ -33,7 +33,7 @@ jobs:
           echo "hello1"
           #args=("$GITHUB_WORKSPACE/pck/phtree-cpp" "-DPHTREE_INSTALL=on" "-DCMAKE_INSTALL_PREFIX:PATH='../../my_packages'")
           #echo "${args[@]}"
-          cmake "${args[@]}"
+          #cmake "${args[@]}"
           cmake $GITHUB_WORKSPACE/pck/phtree-cpp -DPHTREE_INSTALL=on -DCMAKE_INSTALL_PREFIX:PATH="../../../my_packages"
           echo "hello2"
           cmake --build . --config Release --target install -- -j2
@@ -43,11 +43,11 @@ jobs:
           ls -la ../../../my_packages/share/phtree/cmake
 
 #      - name: Prepare package 2
-#        working-directory: ${{github.workspace}}/pck/build
-#        run: cmake $GITHUB_WORKSPACE/pck -DPHTREE_INSTALL=on -DCMAKE_INSTALL_PREFIX:PATH="../../my_packages"
+#        working-directory: ${{github.workspace}}/pck/phtree-cpp/build
+#        run: cmake $GITHUB_WORKSPACE/pck -DPHTREE_INSTALL=on -DCMAKE_INSTALL_PREFIX:PATH="../../../my_packages"
 #
 #      - name: Prepare package 3
-#        working-directory: ${{github.workspace}}/pck/build
+#        working-directory: ${{github.workspace}}/pck/phtree-cpp/build
 #        run: cmake --build . --config Release --target install -- -j2
 
       - name: Create Build Environment
