@@ -29,8 +29,10 @@ jobs:
           ls -la
           mkdir build && cd build
           ls -la
-          cmake .. -DPHTREE_INSTALL=on -DCMAKE_INSTALL_PREFIX:PATH=../../my_packages
+          echo "hello1"
+          cmake .. -DPHTREE_INSTALL=on -DCMAKE_INSTALL_PREFIX:PATH="../../my_packages"
           ls -la
+          echo "hello2"
           cmake --build . --config Release --target install -- -j2
           ls -la
 
