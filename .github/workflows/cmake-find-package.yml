@@ -26,7 +26,7 @@ jobs:
           git clone https://github.com/tzaeschke/phtree-cpp.git
           cd phtree-cpp
           ls -la
-          git branch fix/83-cmake-find-package
+          git checkout fix/83-cmake-find-package
           git status
           mkdir build && cd build
           ls -la
