@@ -38,4 +38,4 @@ jobs:
 
       - name: Example
         working-directory: ${{github.workspace}}/build
-        run: example-fetch-content/Example
+        run: example-fetch-content/ExampleFetch
