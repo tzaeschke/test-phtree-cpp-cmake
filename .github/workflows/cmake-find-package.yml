@@ -22,11 +22,17 @@ jobs:
         run: |
           mkdir my_packages
           mkdir pck && cd pck
+          ls -la
           git clone https://github.com/tzaeschke/phtree-cpp.git
+          ls -la
           git branch fix/83-cmake-find-package
+          ls -la
           mkdir build && cd build
+          ls -la
           cmake .. -DPHTREE_INSTALL=on -DCMAKE_INSTALL_PREFIX:PATH=../../my_packages
+          ls -la
           cmake --build . --config Release --target install -- -j2
+          ls -la
 
       - name: Create Build Environment
         run: cmake -E make_directory ${{github.workspace}}/build
