@@ -1,4 +1,4 @@
-name: CMake fetch-content build
+name: CMake FetchContent build
 
 on: [ push ]
 

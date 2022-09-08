@@ -1,4 +1,4 @@
-name: CMake build
+name: CMake find_package() build
 
 on: [ push ]
 

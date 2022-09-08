@@ -1,4 +1,4 @@
-name: CMake build
+name: CMake add_subdirectory() build
 
 on: [ push ]
 
