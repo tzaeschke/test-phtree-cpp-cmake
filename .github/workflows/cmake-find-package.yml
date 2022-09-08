@@ -30,7 +30,10 @@ jobs:
           mkdir build && cd build
           ls -la
           echo "hello1"
-          cmake $GITHUB_WORKSPACE/pck -DPHTREE_INSTALL=on -DCMAKE_INSTALL_PREFIX:PATH="../../my_packages"
+          args=("$GITHUB_WORKSPACE/pck" "-DPHTREE_INSTALL=on" "-DCMAKE_INSTALL_PREFIX:PATH="../../my_packages"")
+          echo "${args[@]}"
+          cmake "${args[@]}"
+          #cmake $GITHUB_WORKSPACE/pck -DPHTREE_INSTALL=on -DCMAKE_INSTALL_PREFIX:PATH="../../my_packages"
           ls -la
           echo "hello2"
           cmake --build . --config Release --target install -- -j2
