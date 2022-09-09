@@ -1,6 +1,11 @@
 name: CMake Windows build
 
-on: [ push ]
+oon:
+  push:
+  schedule:
+    # Check once a week, e.g. every Monday
+    # https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07
+    - cron: '11 11 * * 1'
 
 env:
   BUILD_TYPE: Release

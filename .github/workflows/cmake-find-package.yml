@@ -1,6 +1,11 @@
 name: CMake find_package() build
 
-on: [ push ]
+on:
+  push:
+  schedule:
+    # Check once a week, e.g. every Monday
+    # https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07
+    - cron: '11 11 * * 1'
 
 env:
   BUILD_TYPE: Release
@@ -18,7 +23,7 @@ jobs:
 
       - uses: hendrikmuhs/ccache-action@v1.2
 
-      - name: Prepare package
+      - name: Install phtree
         run: |
           mkdir my_packages
           mkdir pck && cd pck
